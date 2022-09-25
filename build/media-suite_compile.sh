@@ -10,7 +10,7 @@ if [[ -z $LOCALBUILDDIR ]]; then
         "fstab: " \
         "$(cat /etc/fstab)" \
         "Create a new issue and upload all logs you can find, especially compile.log"
-    read -r -p "Enter to continue" ret
+    #read -r -p "Enter to continue" ret
     exit 1
 fi
 FFMPEG_BASE_OPTS=("--pkg-config=pkgconf" --pkg-config-flags="--keep-system-libs --keep-system-cflags --static" "--cc=$CC" "--cxx=$CXX" "--ld=$CXX" "--extra-cxxflags=-fpermissive")
