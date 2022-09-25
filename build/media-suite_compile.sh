@@ -651,6 +651,9 @@ if [[ $ffmpeg != no ]] && enabled libzimg &&
     do_checkIfExist
 fi
 
+find . -maxdepth 5 -type d -name "build-*bit" -exec rm -rf {} +
+find . -maxdepth 2 -type d -name "build" -exec test -f "{}/CMakeCache.txt" ';' -exec rm -rf {} ';'
+
 set_title "compiling audio tools"
 do_simple_print -p '\n\t'"${orange}Starting $bits compilation of audio tools${reset}"
 
@@ -986,6 +989,9 @@ if { { [[ $ffmpeg != no ]] &&
     do_checkIfExist
     unset _mingw_patches
 fi
+
+find . -maxdepth 5 -type d -name "build-*bit" -exec rm -rf {} +
+find . -maxdepth 2 -type d -name "build" -exec test -f "{}/CMakeCache.txt" ';' -exec rm -rf {} ';'
 
 set_title "compiling video tools"
 do_simple_print -p '\n\t'"${orange}Starting $bits compilation of video tools${reset}"
