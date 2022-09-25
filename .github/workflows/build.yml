@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  numpy-test:
+  build:
     runs-on: windows-latest
     steps:
       - name: Checkout
@@ -15,5 +15,7 @@ jobs:
       - name: run media-autobuild
         shell: cmd
         run: |
+          choco install cuda
           cd media-autobuild_suite
           ./media-autobuild_suite.bat
+          
