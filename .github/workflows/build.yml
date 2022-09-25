@@ -1,0 +1,19 @@
+name: build
+
+on:
+  push:
+    branches: 
+      - master
+  workflow_dispatch:
+
+jobs:
+  numpy-test:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: run media-autobuild
+        shell: cmd
+        run: |
+          cd media-autobuild_suite
+          ./media-autobuild_suite.bat
