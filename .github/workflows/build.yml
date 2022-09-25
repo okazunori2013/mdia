@@ -13,12 +13,11 @@ jobs:
       - name: install dependencies
         run: |
           choco install cuda --no-progress -y
-          choco update all -y
+          choco upgrade all -y
       - name: Checkout
         uses: actions/checkout@v3          
       - name: run media-autobuild
         shell: cmd
         run: |
-          choco install cuda
           cd media-autobuild_suite
           ./media-autobuild_suite.bat
